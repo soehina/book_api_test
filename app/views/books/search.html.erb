@@ -1,0 +1,12 @@
+<div class="content">
+    <div id="search-box">
+        <%= form_tag(books_result_path, method: :post) do %>
+            <input type="text" name="keyword" id="keyword">
+            <button type="submit">検索</button>
+        <% end %>
+    </div>
+    <h2>検索結果</h2>
+    <div id="book_list">
+        <!-- <%= render partial: 'book_list' %> -->
+    </div>
+</div>
