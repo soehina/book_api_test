@@ -1,7 +1,19 @@
-<% for i in 0..19 %>
-    <div>
-        results['items']['i']['title']
-        results['items']['i']['author']
-        results['items']['i']['imageLinks']['smallThumbnail']
-    </div>
+<% for i in 0..@time do %>
+        <div>
+            <% if @results["items"][i]["volumeInfo"]["title"].nil? %>
+                <p>情報がありません</p>
+            <% else %>
+                <p>タイトル：<%= @results["items"][i]["volumeInfo"]["title"] %></p>
+            <% end %>
+            <% if @results["items"][i]["volumeInfo"]["authors"].nil? %>
+                <p>情報がありません</p>
+            <% else %>
+                <p>著者：<%= @results["items"][i]["volumeInfo"]["authors"][0] %></p>
+            <% end %>
+            <% if @results["items"][i]["volumeInfo"]["imageLinks"].nil? %>
+                <p>情報がありません</p>
+            <% else %>
+                <img src="<%= @results["items"][i]["volumeInfo"]["imageLinks"]["thumbnail"] %>" >
+            <% end %>
+        </div>
 <% end %>
